@@ -165,6 +165,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { FileText } from "lucide-react";
 
 export default function InvoiceTable({ title, invoices, type }) {
   // ✅ helpers
@@ -252,14 +253,17 @@ export default function InvoiceTable({ title, invoices, type }) {
   };
 
   return (
-    <Card className="shadow-sm">
-      <CardHeader className="pb-3 border-b border-border/50">
-        <div className="flex items-center justify-between">
-          <div>
-            <CardTitle className="text-lg font-bold text-foreground tracking-tight">{title}</CardTitle>
-            <CardDescription className="text-xs text-muted-foreground">
-              Latest {type === "selling" ? "sales" : "purchase"} transactions
-            </CardDescription>
+    <Card className="shadow-sm rounded-md overflow-hidden">
+      <CardHeader className="bg-[#0073B7] p-3 shrink-0">
+        <div className="flex items-center justify-between w-full">
+          <div className="flex items-center gap-2">
+            <FileText className="w-5 h-5 text-white" />
+            <div className="flex flex-col gap-0.5">
+               <CardTitle className="text-sm font-bold text-white tracking-wider uppercase m-0 p-0">{title}</CardTitle>
+               <CardDescription className="text-[10px] text-white/80 m-0 p-0">
+                Latest {type === "selling" ? "sales" : "purchase"} transactions
+               </CardDescription>
+            </div>
           </div>
           <Link
             href={
@@ -268,14 +272,14 @@ export default function InvoiceTable({ title, invoices, type }) {
                 : `/purchase/all-purchase-invoices`
             }
           >
-            <button className="text-xs text-primary hover:underline font-bold uppercase tracking-wider">
+            <button className="text-[11px] text-white hover:text-white/80 font-bold uppercase tracking-wider px-2 py-1 bg-white/20 rounded-md transition-colors">
               View All
             </button>
           </Link>
         </div>
       </CardHeader>
 
-      <CardContent>
+      <CardContent className="pt-2">
         {/* ========== MOBILE CARD LAYOUT ========== */}
         <div className="md:hidden space-y-2">
           {invoices?.slice(0, 7).map((invoice) => {

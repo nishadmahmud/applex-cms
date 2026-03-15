@@ -14,6 +14,7 @@ import { usePurchaseInvoices } from "@/apiHooks/hooks/usePurchaseInvoices";
 import BestSellingProducts from "./best-selling-products";
 import AreaChartCard from "./area-char-expense";
 import useSalesTargetSummary from "@/apiHooks/hooks/useSalesTargetSummary";
+import CashBalanceCard from "./cash-balance-card";
 
 import ProtectedRoute from "@/components/ProtectedRoute";
 
@@ -166,7 +167,7 @@ export default function DashboardClient() {
           )}
 
           {/* Invoice Tables — each table loads independently */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-8">
             {isSaleInvoiceLoading ? (
               <Skeleton className="h-96" />
             ) : (
@@ -185,6 +186,11 @@ export default function DashboardClient() {
                 type="purchase"
               />
             )}
+          </div>
+
+          {/* Cash, Bank & Mobile Balance */}
+          <div className="mb-4 md:mb-8">
+            <CashBalanceCard />
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useRouter } from "next/navigation";
+import { Star } from "lucide-react";
 export default function BestSellingProducts({ products }) {
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat("en-US", {
@@ -22,12 +23,15 @@ export default function BestSellingProducts({ products }) {
   };
 
   return (
-    <Card className="shadow-sm h-80 md:h-96 overflow-y-auto bg-card border-border">
-      <CardHeader className="pb-3 border-b border-border/50">
-        <CardTitle className="text-lg font-bold text-foreground tracking-tight">Best Selling Products List</CardTitle>
-        <CardDescription className="text-xs text-muted-foreground">Top products by revenue</CardDescription>
+    <Card className="shadow-sm h-80 md:h-96 overflow-hidden bg-card border-border rounded-md flex flex-col">
+      <CardHeader className="bg-[#0073B7] p-3 flex flex-row items-center gap-2 shrink-0">
+        <Star className="w-5 h-5 text-white" />
+        <div className="flex flex-col gap-0.5 m-0 p-0">
+          <CardTitle className="text-sm font-bold text-white tracking-wider uppercase m-0 p-0">Best Selling Products List</CardTitle>
+          <CardDescription className="text-[10px] text-white/80 m-0 p-0">Top products by revenue</CardDescription>
+        </div>
       </CardHeader>
-      <CardContent>
+      <CardContent className="pt-2 flex-1 overflow-y-auto">
         <div className="space-y-1 divide-y divide-border/50">
           {products?.slice(0, 10).map((item, index) => {
             const product = item.product_info || {};

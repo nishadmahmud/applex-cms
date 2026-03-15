@@ -10,6 +10,7 @@ import {
   Label,
 } from "recharts";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { PieChart as PieChartIcon } from "lucide-react";
 
 export default function MostSellingRadialChart({ salesTarget }) {
   if (!salesTarget) return null;
@@ -60,11 +61,12 @@ export default function MostSellingRadialChart({ salesTarget }) {
   };
 
   return (
-    <Card className="shadow-sm h-80 md:h-96 bg-card border-border transition-all hover:shadow-md overflow-hidden">
-      <CardHeader className="pb-3 border-b border-border/50">
-        <CardTitle className="text-lg font-bold text-foreground tracking-tight">Sales Target Summary</CardTitle>
+    <Card className="shadow-sm h-80 md:h-96 bg-card border-border transition-all hover:shadow-md overflow-hidden rounded-md">
+      <CardHeader className="bg-[#0073B7] p-3 flex flex-row items-center gap-2">
+        <PieChartIcon className="w-5 h-5 text-white" />
+        <CardTitle className="text-sm font-bold text-white tracking-wider uppercase m-0 p-0">Sales Target Summary</CardTitle>
       </CardHeader>
-      <CardContent className="p-4 bg-white/50">
+      <CardContent className="p-4 bg-white/50 pt-4">
         <div className="h-[240px] md:h-[300px] flex flex-col">
           {/* Donut Chart */}
           <div className="flex-1 min-h-0">

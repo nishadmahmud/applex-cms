@@ -10,6 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { LineChart } from "lucide-react";
 
 export default function AreaChartCard({ title, color, dataKey, data }) {
   const formatNum = (v) =>
@@ -25,11 +26,12 @@ export default function AreaChartCard({ title, color, dataKey, data }) {
   const gradientId = `grad-${dataKey.replace(/\s+/g, "")}`;
 
   return (
-    <Card className="shadow-sm h-72 md:h-96 transition-all hover:shadow-md bg-card border-border overflow-hidden">
-      <CardHeader className="pb-2">
-        <CardTitle className="text-lg font-bold text-foreground tracking-tight">{title}</CardTitle>
+    <Card className="shadow-sm h-72 md:h-96 transition-all hover:shadow-md bg-card border-border overflow-hidden rounded-md">
+      <CardHeader className="bg-[#0073B7] p-3 flex flex-row items-center gap-2">
+        <LineChart className="w-5 h-5 text-white" />
+        <CardTitle className="text-sm font-bold text-white tracking-wider uppercase m-0 p-0">{title}</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="pt-4">
         <ResponsiveContainer width="100%" height={240}>
           <AreaChart
             data={data}
