@@ -1,0 +1,358 @@
+import {
+  Boxes,
+  ReceiptText,
+  PackagePlus,
+  Wallet,
+  UsersRound,
+  Factory,
+  Banknote,
+  BarChart3,
+  Settings as SettingsIcon,
+  ShoppingCart,
+  ImagePlus,
+  Tags,
+  Newspaper,
+  PercentCircle,
+  Megaphone,
+  Star,
+  LayoutDashboard,
+} from "lucide-react";
+import { FaBoxesPacking } from "react-icons/fa6";
+import { TbMusicDiscount, TbMenuOrder } from "react-icons/tb";
+
+export const rolesFeatures = [
+  {
+    name: "Dashboard",
+    icon: LayoutDashboard,
+    feature_code: "DASHBOARD",
+    status: false,
+    feature_options: [
+      { name: "View Dashboard", feature_code: "DASHBOARD_VIEW", status: false },
+      { name: "Floating Shortcuts", feature_code: "DASHBOARD_FLOATING_SHORTCUTS", status: false },
+    ],
+  },
+  {
+    name: "Products",
+    icon: Boxes,
+    feature_code: "PRODUCTS",
+    status: false,
+    feature_options: [
+      { name: "Add Product", feature_code: "PRODUCT_CREATE", status: false },
+      { name: "Product List", feature_code: "PRODUCT_LIST", status: false },
+      {
+        name: "Product Details",
+        feature_code: "PRODUCT_DETAILS",
+        status: false,
+      },
+      { name: "Product Update", feature_code: "PRODUCT_UPDATE", status: false },
+      { name: "Product Delete", feature_code: "PRODUCT_DELETE", status: false },
+    ],
+  },
+  {
+    name: "Product Purchase Price",
+    icon: PackagePlus,
+    feature_code: "PRODUCT_PURCHASE_PRICE",
+    status: false,
+    feature_options: [
+      { name: "Visible", feature_code: "PRICE_VISIBLE", status: false },
+      { name: "Hidden", feature_code: "PRICE_HIDDEN", status: false },
+    ],
+  },
+  {
+    name: "Sale",
+    icon: ReceiptText,
+    feature_code: "SALE",
+    status: false,
+    feature_options: [
+      { name: "Sale Billing", feature_code: "SALE_BILLING", status: false },
+      { name: "Sale Edit", feature_code: "SALE_EDIT", status: false },
+      { name: "Sale Return", feature_code: "SALE_RETURN", status: false },
+      { name: "Customer List", feature_code: "CUSTOMER_LIST", status: false },
+      { name: "Sale Invoice", feature_code: "SALE_INVOICE", status: false },
+      {
+        name: "Hold Invoice List",
+        feature_code: "HOLD_INVOICE_LIST",
+        status: false,
+      },
+      // new two features added
+      {
+        name: "Pending Invoice List",
+        feature_code: "PENDING_INVOICE_LIST",
+        status: false,
+      },
+      {
+        name: "Complete Invoice List",
+        feature_code: "COMPLETE_INVOICE_LIST",
+        status: false,
+      },
+    ],
+  },
+  {
+    name: "Purchase",
+    icon: PackagePlus,
+    feature_code: "PURCHASE",
+    status: false,
+    feature_options: [
+      {
+        name: "Purchase Billing",
+        feature_code: "PURCHASE_BILLING",
+        status: false,
+      },
+      {
+        name: "Purchase Edit",
+        feature_code: "PURCHASE_EDIT",
+        status: false,
+      },
+      {
+        name: "Purchase Return",
+        feature_code: "PURCHASE_RETURN",
+        status: false,
+      },
+      { name: "Vendor List", feature_code: "VENDOR_LIST", status: false },
+      {
+        name: "Purchase Invoice",
+        feature_code: "PURCHASE_INVOICE",
+        status: false,
+      },
+    ],
+  },
+
+  // 💜 Added full Ecommerce section
+  {
+    name: "Ecommerce",
+    icon: ShoppingCart,
+    feature_code: "ECOMMERCE",
+    status: false,
+    feature_options: [
+      {
+        name: "Create Banner",
+        feature_code: "ECOM_CREATE_BANNER",
+        status: false,
+      },
+      { name: "Orders", feature_code: "ECOM_ORDERS", status: false },
+      { name: "Refund Requests", feature_code: "ECOM_REFUNDS", status: false },
+      {
+        name: "Create Slider",
+        feature_code: "ECOM_CREATE_SLIDER",
+        status: false,
+      },
+      { name: "Blogs", feature_code: "ECOM_BLOGS", status: false },
+      {
+        name: "Latest Offer",
+        feature_code: "ECOM_LATEST_OFFER",
+        status: false,
+      },
+      { name: "Coupons", feature_code: "ECOM_COUPONS", status: false },
+      { name: "Campaigns", feature_code: "ECOM_CAMPAIGN", status: false },
+      { name: "Bundles", feature_code: "ECOM_BUNDLES", status: false },
+      {
+        name: "New Customer Discounts",
+        feature_code: "ECOM_NEW_CUSTOMER_DISCOUNTS",
+        status: false,
+      },
+      { name: "Main Header", feature_code: "ECOM_MAIN_HEADER", status: false },
+      { name: "Top Header", feature_code: "ECOM_TOP_HEADER", status: false },
+      { name: "Footer", feature_code: "ECOM_FOOTER", status: false },
+      {
+        name: "Customer Reviews",
+        feature_code: "ECOM_CUSTOMER_REVIEWS",
+        status: false,
+      },
+      {
+        name: "Popup Banner",
+        feature_code: "ECOM_POPUP_BANNER",
+        status: false,
+      },
+    ],
+  },
+
+  {
+    name: "Expense",
+    icon: Wallet,
+    feature_code: "EXPENSE",
+    status: false,
+    feature_options: [
+      { name: "Expense List", feature_code: "EXPENSE_LIST", status: false },
+      {
+        name: "Expense Category List",
+        feature_code: "EXPENSE_CATEGORY_LIST",
+        status: false,
+      },
+    ],
+  },
+  {
+    name: "Quick Payment",
+    icon: Wallet,
+    feature_code: "QUICK_PAYMENT",
+    status: false,
+    feature_options: [
+      {
+        name: "Quick Payment List",
+        feature_code: "QUICK_PAYMENT_LIST",
+        status: false,
+      },
+      {
+        name: "Payment Category List",
+        feature_code: "PAYMENT_CATEGORY_LIST",
+        status: false,
+      },
+    ],
+  },
+  {
+    name: "HRM",
+    icon: UsersRound,
+    feature_code: "HRM",
+    status: false,
+    feature_options: [
+      { name: "Employee List", feature_code: "EMPLOYEE_LIST", status: false },
+      {
+        name: "Designation List",
+        feature_code: "DESIGNATION_LIST",
+        status: false,
+      },
+      {
+        name: "Department List",
+        feature_code: "DEPARTMENT_LIST",
+        status: false,
+      },
+      { name: "Role List", feature_code: "ROLE_LIST", status: false },
+      {
+        name: "Employees Salary",
+        feature_code: "EMPLOYEES_SALARY",
+        status: false,
+      },
+    ],
+  },
+  {
+    name: "Wholesale",
+    icon: Factory,
+    feature_code: "WHOLESALE",
+    status: false,
+    feature_options: [
+      {
+        name: "Wholesale Billing",
+        feature_code: "WHOLESALE_BILLING",
+        status: false,
+      },
+      {
+        name: "Wholesale Edit",
+        feature_code: "WHOLESALE_EDIT",
+        status: false,
+      },
+      { name: "Wholesale List", feature_code: "WHOLESALE_LIST", status: false },
+      {
+        name: "Wholesaler List",
+        feature_code: "WHOLESALER_LIST",
+        status: false,
+      },
+    ],
+  },
+  {
+    name: "Finance",
+    icon: Banknote,
+    feature_code: "FINANCE",
+    status: false,
+    feature_options: [
+      {
+        name: "Fund Transfer",
+        feature_code: "FUND_TRANSFER",
+        status: false,
+      },
+    ],
+  },
+  {
+    name: "Analytics",
+    icon: BarChart3,
+    feature_code: "ANALYTICS",
+    status: false,
+    feature_options: [
+      { name: "Cash Statement Report", feature_code: "CASH_STATEMENT_REPORT", status: false },
+      { name: "Ledger Statement Report", feature_code: "LEDGER_STATEMENT_REPORT", status: false },
+      { name: "Customer due aging Report", feature_code: "CUSTOMER_DUE_AGING_REPORT", status: false },
+      { name: "Accounting History", feature_code: "ACCOUNTING_HISTORY", status: false },
+      { name: "Category Sale Report", feature_code: "CATEGORY_SALE_REPORT", status: false },
+      { name: "Product Sale Report", feature_code: "PRODUCT_SALE_REPORT", status: false },
+      { name: "IMEI/Serial Report", feature_code: "IMEI_SERIAL_REPORT", status: false },
+      { name: "Product Stock Report", feature_code: "PRODUCT_STOCK_REPORT", status: false },
+      { name: "Category Stock Report", feature_code: "CATEGORY_STOCK_REPORT", status: false },
+      { name: "Ledger Report History", feature_code: "LEDGER_REPORT_HISTORY", status: false },
+      { name: "Balance Sheet Report History", feature_code: "BALANCE_SHEET_REPORT_HISTORY", status: false },
+      { name: "Sales Register Report", feature_code: "SALES_REGISTER_REPORT", status: false },
+      { name: "Monthly Sales Day Counting Report", feature_code: "MONTHLY_SALES_DAY_COUNTING_REPORT", status: false },
+      { name: "Monthly Purchase Day Counting Report", feature_code: "MONTHLY_PURCHASE_DAY_COUNTING_REPORT", status: false },
+      { name: "Profit And Loss Account Report", feature_code: "PROFIT_LOSS_REPORT", status: false },
+      { name: "Cash Book Details History", feature_code: "CASH_BOOK_DETAILS_HISTORY", status: false },
+      { name: "Cash Book Summary Report", feature_code: "CASH_BOOK_SUMMARY_REPORT", status: false },
+      { name: "Store Ledger Report", feature_code: "STORE_LEDGER_REPORT", status: false },
+      { name: "Transaction Summary Report", feature_code: "TRANSACTION_SUMMARY_REPORT", status: false },
+      { name: "Due Report History", feature_code: "DUE_REPORT_HISTORY", status: false },
+      { name: "Customer Summary Report", feature_code: "CUSTOMER_SUMMARY_REPORT", status: false },
+      { name: "Customer Wise Due Report", feature_code: "CUSTOMER_WISE_DUE_REPORT", status: false },
+      { name: "Employee Wise Sales Report", feature_code: "EMPLOYEE_WISE_SALES_REPORT", status: false },
+      { name: "Month Wise Report", feature_code: "MONTH_WISE_REPORT", status: false },
+      { name: "Expense Type Wise Report", feature_code: "EXPENSE_TYPE_WISE_REPORT", status: false },
+      { name: "Sales Register Details Report", feature_code: "SALES_REGISTER_DETAILS_REPORT", status: false },
+      { name: "Purchase Register Details Report", feature_code: "PURCHASE_REGISTER_DETAILS_REPORT", status: false },
+      { name: "Sales Quantity Report", feature_code: "SALES_QUANTITY_REPORT", status: false },
+    ],
+  },
+  {
+    name: "Warehouse",
+    icon: BarChart3,
+    feature_code: "WAREHOUSE",
+    status: false,
+    feature_options: [
+      {
+        name: "Warehouse Create",
+        feature_code: "WAREHOUSE_CREATE",
+        status: false,
+      },
+      { name: "Warehouse View", feature_code: "WAREHOUSE_VIEW", status: false },
+      { name: "Warehouse Edit", feature_code: "WAREHOUSE_EDIT", status: false },
+      {
+        name: "Warehouse Activate",
+        feature_code: "WAREHOUSE_ACTIVATE",
+        status: false,
+      },
+      {
+        name: "Warehouse Deactivate",
+        feature_code: "WAREHOUSE_DEACTIVATE",
+        status: false,
+      },
+    ],
+  },
+  {
+    name: "Settings",
+    icon: SettingsIcon,
+    feature_code: "SETTINGS",
+    status: false,
+    feature_options: [
+      { name: "Brands", feature_code: "SETTINGS_BRANDS", status: false },
+      {
+        name: "Invoice Settings",
+        feature_code: "SETTINGS_INVOICE_SETTINGS",
+        status: false,
+      },
+      { name: "Category", feature_code: "SETTINGS_CATEGORY", status: false },
+      {
+        name: "Sub Category",
+        feature_code: "SETTINGS_SUB_CATEGORY",
+        status: false,
+      },
+      { name: "Units", feature_code: "SETTINGS_UNITS", status: false },
+      {
+        name: "Attributes",
+        feature_code: "SETTINGS_ATTRIBUTES",
+        status: false,
+      },
+      { name: "Warranty", feature_code: "SETTINGS_WARRANTY", status: false },
+      { name: "Couriers", feature_code: "SETTINGS_COURIERS", status: false },
+      { name: "Payments", feature_code: "SETTINGS_PAYMENTS", status: false },
+      {
+        name: "T & C",
+        feature_code: "SETTINGS_TERMS_CONDITIONS",
+        status: false,
+      },
+    ],
+  },
+];
