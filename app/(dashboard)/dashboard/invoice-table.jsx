@@ -241,23 +241,23 @@ export default function InvoiceTable({ title, invoices, type }) {
     if (due > 0)
       return {
         label: `${due.toLocaleString()} BDT`,
-        color: "bg-red-100 text-red-800",
+        color: "bg-rose-50 text-rose-700 border-rose-200 font-bold",
       };
     if (due < 0)
       return {
         label: `${Math.abs(due).toLocaleString()} BDT`,
-        color: "bg-blue-100 text-blue-800",
+        color: "bg-blue-50 text-blue-700 border-blue-200 font-bold",
       };
-    return { label: "Paid", color: "bg-green-100 text-green-800" };
+    return { label: "Paid", color: "bg-emerald-50 text-emerald-700 border-emerald-200 font-bold" };
   };
 
   return (
     <Card className="shadow-sm">
-      <CardHeader>
+      <CardHeader className="pb-3 border-b border-border/50">
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle className="text-lg">{title}</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-lg font-bold text-foreground tracking-tight">{title}</CardTitle>
+            <CardDescription className="text-xs text-muted-foreground">
               Latest {type === "selling" ? "sales" : "purchase"} transactions
             </CardDescription>
           </div>
@@ -268,7 +268,7 @@ export default function InvoiceTable({ title, invoices, type }) {
                 : `/purchase/all-purchase-invoices`
             }
           >
-            <button className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+            <button className="text-xs text-primary hover:underline font-bold uppercase tracking-wider">
               View All
             </button>
           </Link>
@@ -320,25 +320,25 @@ export default function InvoiceTable({ title, invoices, type }) {
             return (
               <div
                 key={invoice.id}
-                className="flex items-center justify-between p-3 rounded-lg border border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer"
+                className="flex items-center justify-between p-3 rounded-lg border border-border/30 hover:bg-muted/30 transition-colors cursor-pointer"
                 onClick={() => handleRowClick(invoice?.invoice_id)}
               >
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <p className="font-medium text-sm text-gray-900 truncate">
+                    <p className="font-bold text-sm text-foreground truncate">
                       {invoice.invoice_id}
                     </p>
                     {dueBadge}
                   </div>
-                  <p className="text-xs text-gray-500 truncate mt-0.5">
+                  <p className="text-xs text-muted-foreground/60 truncate mt-0.5">
                     {customerName || "N/A"}
                   </p>
                 </div>
                 <div className="text-right ml-3 shrink-0">
-                  <p className="text-sm font-semibold text-gray-900">
+                  <p className="text-sm font-bold text-foreground">
                     {amountDisplay}
                   </p>
-                  <p className="text-[10px] text-gray-400">
+                  <p className="text-[10px] text-muted-foreground/40">
                     {dateInfo.date}
                   </p>
                 </div>
@@ -350,18 +350,18 @@ export default function InvoiceTable({ title, invoices, type }) {
         {/* ========== DESKTOP TABLE LAYOUT ========== */}
         <div className="hidden md:block overflow-x-auto">
           <table className="w-full text-sm">
-            <thead className="border-b border-gray-200 bg-gray-50">
+            <thead className="bg-gray-50/80 border-b border-border">
               <tr>
-                <th className="px-4 py-3 text-left font-semibold text-gray-700">
+                <th className="px-4 py-3 text-left font-bold text-muted-foreground uppercase tracking-widest text-[10px]">
                   Name
                 </th>
-                <th className="px-4 py-3 text-left font-semibold text-gray-700">
+                <th className="px-4 py-3 text-left font-bold text-muted-foreground uppercase tracking-widest text-[10px]">
                   Amount
                 </th>
-                <th className="px-4 py-3 text-left font-semibold text-gray-700">
+                <th className="px-4 py-3 text-left font-bold text-muted-foreground uppercase tracking-widest text-[10px]">
                   Due
                 </th>
-                <th className="px-4 py-3 text-left font-semibold text-gray-700">
+                <th className="px-4 py-3 text-left font-bold text-muted-foreground uppercase tracking-widest text-[10px]">
                   Date/Time
                 </th>
               </tr>
@@ -398,29 +398,27 @@ export default function InvoiceTable({ title, invoices, type }) {
                   return (
                     <tr
                       key={invoice.id}
-                      className="border-b border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer"
+                      className="border-b border-border hover:bg-gray-50/50 transition-colors cursor-pointer group"
                       onClick={() => handleRowClick(invoice?.invoice_id)}
                     >
-                      <td className="px-4 py-3">
+                      <td className="px-4 py-4">
                         <div>
-                          <p className="font-medium text-gray-900">
+                          <p className="font-bold text-gray-900 group-hover:text-primary transition-colors">
                             {invoice.invoice_id}
                           </p>
-                          <p className="text-xs text-gray-500">
+                          <p className="text-xs text-muted-foreground font-medium">
                             {customerName || "N/A"}
                           </p>
                         </div>
                       </td>
-                      <td className="px-4 py-3">
-                        <p className="font-semibold text-gray-900">
-                          {total.toLocaleString()} BDT
-                        </p>
+                      <td className="px-4 py-4 text-gray-900 font-bold">
+                        {total?.toLocaleString() || Number(invoice.sub_total || 0).toLocaleString()} BDT
                       </td>
-                      <td className="px-4 py-3">{dueBadge}</td>
-                      <td className="px-4 py-3">
+                      <td className="px-4 py-4">{dueBadge}</td>
+                      <td className="px-4 py-4">
                         <div>
-                          <p className="text-gray-900">{dateInfo.date}</p>
-                          <p className="text-xs text-gray-500">
+                          <p className="text-sm font-semibold text-gray-800">{dateInfo.date}</p>
+                          <p className="text-[10px] text-muted-foreground font-mono">
                             {dateInfo.ago}
                           </p>
                         </div>

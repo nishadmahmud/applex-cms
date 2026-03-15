@@ -486,7 +486,7 @@ export default function ServiceInvoice({
             style={{ backgroundColor: firstCode || "#a9d0b8" }}
           >
             <span className="font-bold text-[10px] tracking-[1.5px] text-[#0E6B57] transform skew-x-[12deg] uppercase font-sans">
-              {userInfo?.web_address || session?.user?.web_address || "www.commeriva.com"}
+              {userInfo?.web_address || session?.user?.web_address || "www.Applex.com"}
             </span>
           </div>
         </div>

@@ -25,9 +25,9 @@ export default function AreaChartCard({ title, color, dataKey, data }) {
   const gradientId = `grad-${dataKey.replace(/\s+/g, "")}`;
 
   return (
-    <Card className="shadow-sm h-72 md:h-96 transition-all hover:shadow-lg bg-white/90 backdrop-blur-sm rounded-xl">
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
+    <Card className="shadow-sm h-72 md:h-96 transition-all hover:shadow-md bg-card border-border overflow-hidden">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-lg font-bold text-foreground tracking-tight">{title}</CardTitle>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={240}>
@@ -43,17 +43,20 @@ export default function AreaChartCard({ title, color, dataKey, data }) {
               </linearGradient>
             </defs>
 
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-            <XAxis dataKey="name" tick={{ fontSize: 12 }} />
-            <YAxis tickFormatter={formatNum} tick={{ fontSize: 12 }} />
+            <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" vertical={false} />
+            <XAxis dataKey="name" tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} axisLine={{ stroke: "hsl(var(--border))" }} />
+            <YAxis tickFormatter={formatNum} tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} axisLine={{ stroke: "hsl(var(--border))" }} />
             <Tooltip
               formatter={(v) => v.toLocaleString()}
               contentStyle={{
-                background: "rgba(255,255,255,0.9)",
-                border: "1px solid #e5e7eb",
-                borderRadius: "8px",
+                backgroundColor: "hsl(var(--card))",
+                borderColor: "hsl(var(--border))",
+                color: "hsl(var(--foreground))",
+                borderRadius: "12px",
+                boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1)",
                 fontSize: "12px",
               }}
+              itemStyle={{ color: "hsl(var(--primary))", fontWeight: "bold" }}
             />
             <Area
               type="monotone"

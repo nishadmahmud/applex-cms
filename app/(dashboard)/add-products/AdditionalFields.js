@@ -63,7 +63,7 @@ export default function AdditionalFields({
     const onStorage = (e) => {
       if (!e) return;
       // If key is null, storage cleared; refresh anyway
-      if (!e.key || e.key === "commeriva.additionalInfos.v1") {
+      if (!e.key || e.key === "Applex.additionalInfos.v1") {
         setSavedAdditionalInfos(readAdditionalInfosFromStorage());
       }
     };
@@ -666,11 +666,11 @@ export default function AdditionalFields({
                   value={
                     field.value
                       ? currencies?.data
-                          ?.filter((c) => Number(c.id) === Number(field.value))
-                          .map((c) => ({
-                            value: c.id,
-                            label: `${c.name} (${c.symbol}) — ${c.code}`,
-                          }))[0]
+                        ?.filter((c) => Number(c.id) === Number(field.value))
+                        .map((c) => ({
+                          value: c.id,
+                          label: `${c.name} (${c.symbol}) — ${c.code}`,
+                        }))[0]
                       : null
                   }
                   onChange={(option) =>
@@ -799,7 +799,7 @@ export default function AdditionalFields({
                 </SelectTrigger>
                 <SelectContent>
                   {Array.isArray(savedAdditionalInfos?.manufacturer_details) &&
-                  savedAdditionalInfos.manufacturer_details.length ? (
+                    savedAdditionalInfos.manufacturer_details.length ? (
                     savedAdditionalInfos.manufacturer_details.map((val, idx) => (
                       <SelectItem
                         key={`manufacturer_details-${idx}`}
@@ -857,7 +857,7 @@ export default function AdditionalFields({
                 </SelectTrigger>
                 <SelectContent>
                   {Array.isArray(savedAdditionalInfos?.packer_details) &&
-                  savedAdditionalInfos.packer_details.length ? (
+                    savedAdditionalInfos.packer_details.length ? (
                     savedAdditionalInfos.packer_details.map((val, idx) => (
                       <SelectItem key={`packer_details-${idx}`} value={val}>
                         {val.length > 40 ? `${val.slice(0, 40)}…` : val}
@@ -912,7 +912,7 @@ export default function AdditionalFields({
                 </SelectTrigger>
                 <SelectContent>
                   {Array.isArray(savedAdditionalInfos?.seller_details) &&
-                  savedAdditionalInfos.seller_details.length ? (
+                    savedAdditionalInfos.seller_details.length ? (
                     savedAdditionalInfos.seller_details.map((val, idx) => (
                       <SelectItem key={`seller_details-${idx}`} value={val}>
                         {val.length > 40 ? `${val.slice(0, 40)}…` : val}
@@ -967,7 +967,7 @@ export default function AdditionalFields({
                 </SelectTrigger>
                 <SelectContent>
                   {Array.isArray(savedAdditionalInfos?.return_delivery_days) &&
-                  savedAdditionalInfos.return_delivery_days.length ? (
+                    savedAdditionalInfos.return_delivery_days.length ? (
                     savedAdditionalInfos.return_delivery_days.map((val, idx) => (
                       <SelectItem
                         key={`return_delivery_days-${idx}`}
@@ -1025,7 +1025,7 @@ export default function AdditionalFields({
                 </SelectTrigger>
                 <SelectContent>
                   {Array.isArray(savedAdditionalInfos?.importer_details) &&
-                  savedAdditionalInfos.importer_details.length ? (
+                    savedAdditionalInfos.importer_details.length ? (
                     savedAdditionalInfos.importer_details.map((val, idx) => (
                       <SelectItem key={`importer_details-${idx}`} value={val}>
                         {val.length > 40 ? `${val.slice(0, 40)}…` : val}

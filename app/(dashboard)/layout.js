@@ -28,7 +28,7 @@ export default function DashboardLayout({ children }) {
     <AuthProvider>
       <TanstackProvider>
         <Providers>
-          <div className="px-5">
+          <div className="">
             <SidebarProvider>
               <AuthSync />
               {/* ✅ --- NORMAL LAYOUT (Dashboard, Items, etc.) --- */}
@@ -76,7 +76,7 @@ export default function DashboardLayout({ children }) {
 
                   {/* 🧩 Sidebar Drawer Slide-in */}
                   <div
-                    className={`fixed top-0 left-0 h-full w-[270px] bg-white shadow-lg z-50 transform transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+                    className={`fixed top-0 left-0 h-full w-[270px] bg-sidebar shadow-lg z-50 transform transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
                       }`}
                   >
                     <AppSidebar />

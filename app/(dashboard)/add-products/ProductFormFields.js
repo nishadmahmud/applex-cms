@@ -39,8 +39,8 @@ const nunito = Nunito({
   subsets: ["latin"], // optional
 });
 
-const DRAFT_KEY_ADD = "commeriva.add-product.draft";
-const DRAFT_KEY_EDIT_PREFIX = "commeriva.edit-product.draft.";
+const DRAFT_KEY_ADD = "Applex.add-product.draft";
+const DRAFT_KEY_EDIT_PREFIX = "Applex.edit-product.draft.";
 // Edit drafts are per productId so different products never share a draft.
 // Draft is cleared on successful save, so re-opening edit shows API/saved data.
 
@@ -81,7 +81,7 @@ function clearDraft(mode, productId) {
   const key = getDraftKey(mode, productId);
   try {
     sessionStorage.removeItem(key);
-  } catch {}
+  } catch { }
 }
 
 export default function ProductFormFields({ product, mode = "add" }) {
@@ -249,7 +249,7 @@ export default function ProductFormFields({ product, mode = "add" }) {
         color: processedProduct.color || "",
         have_product_variant: processedProduct.have_product_variant || 0,
         stock_restrictions:
-        processedProduct.stock_restrictions !== undefined
+          processedProduct.stock_restrictions !== undefined
             ? Boolean(processedProduct.stock_restrictions)
             : true, // ✅ default to true if missing
         product_variants: Array.isArray(processedProduct?.product_variants)

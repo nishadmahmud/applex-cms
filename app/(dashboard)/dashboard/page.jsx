@@ -56,7 +56,7 @@ export default function DashboardClient() {
   // Only block render while session resolves (usually < 200ms)
   if (status === "loading") {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-6">
+      <div className="min-h-screen bg-background p-6">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {[1, 2, 3, 4].map((i) => <Skeleton key={i} className="h-36" />)}
         </div>
@@ -88,16 +88,16 @@ export default function DashboardClient() {
 
   return (
     <ProtectedRoute featureName="Dashboard">
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="min-h-screen bg-background text-foreground">
         {/* Header — always visible instantly */}
-        <div className="bg-white border-b border-gray-200">
+        <div className="bg-card border-b border-border">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 md:gap-4">
               <div>
-                <h1 className="text-xl md:text-3xl font-bold text-gray-900">Dashboard</h1>
-                <p className="text-gray-600 mt-1 text-sm md:text-base">
+                <h1 className="text-xl md:text-3xl font-bold text-foreground">Dashboard</h1>
+                <p className="text-muted-foreground mt-1 text-sm md:text-base">
                   Welcome back to{" "}
-                  <span className="font-semibold font-mono">
+                  <span className="font-semibold font-mono text-primary">
                     {session?.user?.outlet_name}
                   </span>
                 </p>

@@ -354,8 +354,8 @@ const VerifyPinForm = () => {
     } catch (error) {
       toast.error(
         error?.response?.data?.message ||
-          error?.message ||
-          "An error occurred while verifying PIN"
+        error?.message ||
+        "An error occurred while verifying PIN"
       );
       setLoading(false);
     }
@@ -375,7 +375,7 @@ const VerifyPinForm = () => {
         <div className="w-12 h-12 rounded-xl bg-violet-600 flex items-center justify-center text-white font-semibold text-lg">
           C
         </div>
-        <h1 className="text-lg font-semibold mt-3 text-white">Commeriva CMS</h1>
+        <h1 className="text-lg font-semibold mt-3 text-white">Applex CMS</h1>
         <p className="text-sm text-gray-300">
           A Complete POS and Inventory Management Solution
         </p>
@@ -448,7 +448,7 @@ const VerifyPinForm = () => {
 
       {/* Footer */}
       <footer className="mt-16 text-xs text-gray-400">
-        © {new Date().getFullYear()} Commeriva. All rights reserved.
+        © {new Date().getFullYear()} Applex. All rights reserved.
       </footer>
     </div>
   );

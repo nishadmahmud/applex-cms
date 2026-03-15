@@ -104,20 +104,20 @@ export function AppHeader() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <div
-              className="flex items-center w-full max-w-xl h-11 px-4 bg-secondary/50 rounded-full cursor-pointer hover:bg-secondary border border-border hover:border-primary/50 transition-all font-sans"
+              className="flex items-center w-full max-w-xl h-11 px-4 bg-gray-100 rounded-xl cursor-pointer hover:bg-gray-200/80 border border-border/80 hover:border-primary/40 transition-all font-sans group"
               tabIndex={0}
             >
-              <Search className="h-4 w-4 text-muted-foreground mr-2" />
+              <Search className="h-4 w-4 text-muted-foreground mr-2 group-hover:text-primary transition-colors" />
               <span className="text-muted-foreground text-sm font-medium truncate">
                 Search features or pages ....
               </span>
             </div>
           </DropdownMenuTrigger>
 
-          <DropdownMenuContent
-            align="center"
-            className="w-[calc(100vw-1rem)] md:w-[28rem] p-2 mt-2 rounded-2xl shadow-2xl border border-gray-100 bg-white"
-          >
+              <DropdownMenuContent
+                align="center"
+                className="w-[calc(100vw-1rem)] md:w-[28rem] p-3 mt-2 rounded-2xl shadow-2xl border border-border bg-card"
+              >
             {/* Search Input */}
             <div className="px-2 pb-2 relative">
               <div className="flex items-center bg-gray-50 rounded-full border px-3 py-2 focus-within:ring-2 focus-within:ring-blue-400">
@@ -294,12 +294,12 @@ export function AppHeader() {
               </Avatar>
 
               <div className="hidden sm:block ml-2 leading-none">
-                <p className="text-sm font-semibold text-gray-800">
+                <p className="text-sm font-bold text-gray-900">
                   {session?.isEmployee
                     ? session?.employee?.name || "Employee"
                     : session?.user?.owner_name || "User"}
                 </p>
-                <p className="text-xs text-gray-500">
+                <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-wider">
                   {session?.isEmployee
                     ? session?.employee?.role?.name || "Employee"
                     : "Admin"}

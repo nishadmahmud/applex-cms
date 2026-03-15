@@ -9,9 +9,8 @@ export default function KPIMetrics({ data }) {
       trend: data?.sales_change || "0%",
       trendText: data?.sales_report || "",
       icon: "📊",
-      color: "from-blue-50 to-blue-100",
-      textColor: "text-blue-600",
-      link: "/invoice/all-sell-invoice", // New link property
+      accentColor: "text-blue-500",
+      link: "/invoice/all-sell-invoice",
     },
     {
       title: "Total Revenue",
@@ -20,8 +19,7 @@ export default function KPIMetrics({ data }) {
       trend: data?.revenue_percentage || "0%",
       trendText: data?.revenue_report || "",
       icon: "💰",
-      color: "from-green-50 to-green-100",
-      textColor: "text-green-600",
+      accentColor: "text-emerald-500",
       link: "/analytics/monthly-sales-day-counting-report",
     },
     {
@@ -31,8 +29,7 @@ export default function KPIMetrics({ data }) {
       trend: data?.expense_percentage || "0%",
       trendText: data?.expense_report || "",
       icon: "💸",
-      color: "from-red-50 to-red-100",
-      textColor: "text-red-600",
+      accentColor: "text-rose-500",
       link: "/expense/list",
     },
     {
@@ -40,8 +37,7 @@ export default function KPIMetrics({ data }) {
       value: data?.purchase || 0,
       currency: "BDT",
       icon: "🛒",
-      color: "from-orange-50 to-orange-100",
-      textColor: "text-orange-600",
+      accentColor: "text-amber-500",
       link: "/analytics/monthly-purchase-day-counting-report",
     },
     {
@@ -51,8 +47,7 @@ export default function KPIMetrics({ data }) {
       trend: data?.balance_percentage || "0%",
       trendText: data?.balance_report || "",
       icon: "💵",
-      color: "from-indigo-50 to-indigo-100",
-      textColor: "text-indigo-600",
+      accentColor: "text-indigo-500",
       link: "/finance/fund-transfer",
     },
     {
@@ -60,24 +55,21 @@ export default function KPIMetrics({ data }) {
       value: data?.order || 0,
       trend: data?.order_percentage || "0%",
       icon: "📦",
-      color: "from-purple-50 to-purple-100",
-      textColor: "text-purple-600",
+      accentColor: "text-purple-500",
     },
     {
       title: "New Customers",
       value: data?.new_customer || 0,
       trend: data?.customer_percentage || "0%",
       icon: "👥",
-      color: "from-teal-50 to-teal-100",
-      textColor: "text-teal-600",
+      accentColor: "text-teal-500",
       link: "/sale/customers",
     },
     {
       title: "Current Stock",
       value: data?.current_stock || 0,
       icon: "📦",
-      color: "from-cyan-50 to-cyan-100",
-      textColor: "text-cyan-600",
+      accentColor: "text-cyan-500",
     },
   ];
 

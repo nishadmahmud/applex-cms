@@ -22,20 +22,20 @@ export default function BestSellingProducts({ products }) {
   };
 
   return (
-    <Card className="shadow-sm h-80 md:h-96 overflow-y-auto">
-      <CardHeader>
-        <CardTitle>Best Selling Products List</CardTitle>
-        <CardDescription>Top products by revenue</CardDescription>
+    <Card className="shadow-sm h-80 md:h-96 overflow-y-auto bg-card border-border">
+      <CardHeader className="pb-3 border-b border-border/50">
+        <CardTitle className="text-lg font-bold text-foreground tracking-tight">Best Selling Products List</CardTitle>
+        <CardDescription className="text-xs text-muted-foreground">Top products by revenue</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="space-y-1 divide-y divide-gray-300">
+        <div className="space-y-1 divide-y divide-border/50">
           {products?.slice(0, 10).map((item, index) => {
             const product = item.product_info || {};
             return (
               <div
                 onClick={() => handleRedirectToProduct(item?.product_id)}
                 key={index}
-                className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer"
+                className="flex items-center justify-between p-3 hover:bg-gray-50/80 transition-colors cursor-pointer group"
               >
                 <div className="flex items-center gap-3 flex-1">
                   {product.image_path ? (
@@ -54,7 +54,7 @@ export default function BestSellingProducts({ products }) {
                     </div>
                   )}
                   <div className="flex-1">
-                    <p className="font-medium text-sm text-gray-900">
+                    <p className="font-bold text-[13px] text-gray-900 group-hover:text-primary transition-colors">
                       {product.name || "Product"}
                     </p>
                     <div className="flex items-center gap-2 mt-1">

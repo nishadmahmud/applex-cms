@@ -1,4 +1,4 @@
-const STORAGE_KEY = "commeriva.additionalInfos.v1";
+const STORAGE_KEY = "Applex.additionalInfos.v1";
 
 export const ADDITIONAL_INFOS_FIELDS = [
   {

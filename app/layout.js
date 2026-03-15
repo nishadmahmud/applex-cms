@@ -20,7 +20,7 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: "Commeriva CMS",
+  title: "Applex CMS",
   description: "A business management system",
   icons: {
     icon: "/logo.jpg", // or "/favicon.png"

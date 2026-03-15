@@ -43,14 +43,14 @@ export default function MostSellingRadialChart({ salesTarget }) {
   const renderLegend = (props) => {
     const { payload } = props;
     return (
-      <div className="flex justify-center gap-4 md:gap-8 mt-4">
+      <div className="flex justify-center gap-4 md:gap-8 mt-2">
         {payload.map((entry, index) => (
           <div key={`legend-${index}`} className="flex items-center gap-2">
             <div
-              className="w-4 h-4 rounded"
+              className="w-3 h-3 rounded-full"
               style={{ backgroundColor: entry.color }}
             />
-            <span className="text-sm font-medium text-gray-700">
+            <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
               {entry.value}
             </span>
           </div>
@@ -60,11 +60,11 @@ export default function MostSellingRadialChart({ salesTarget }) {
   };
 
   return (
-    <Card className="shadow-sm h-80 md:h-96 bg-white/90 backdrop-blur-sm transition-all hover:shadow-md">
-      <CardHeader className="pb-3">
-        <CardTitle>Sales Target Summary</CardTitle>
+    <Card className="shadow-sm h-80 md:h-96 bg-card border-border transition-all hover:shadow-md overflow-hidden">
+      <CardHeader className="pb-3 border-b border-border/50">
+        <CardTitle className="text-lg font-bold text-foreground tracking-tight">Sales Target Summary</CardTitle>
       </CardHeader>
-      <CardContent className="p-4">
+      <CardContent className="p-4 bg-white/50">
         <div className="h-[240px] md:h-[300px] flex flex-col">
           {/* Donut Chart */}
           <div className="flex-1 min-h-0">
@@ -95,7 +95,7 @@ export default function MostSellingRadialChart({ salesTarget }) {
                             y={cy - 10}
                             textAnchor="middle"
                             dominantBaseline="central"
-                            className="fill-gray-600 text-sm font-medium"
+                            className="fill-muted-foreground text-[10px] font-bold uppercase tracking-widest"
                           >
                             Remaining
                           </text>
@@ -104,7 +104,7 @@ export default function MostSellingRadialChart({ salesTarget }) {
                             y={cy + 15}
                             textAnchor="middle"
                             dominantBaseline="central"
-                            className="fill-red-600 text-2xl font-bold"
+                            className="fill-rose-600 text-3xl font-black tracking-tighter"
                           >
                             {remainingPercent.toFixed(1)}%
                           </text>
@@ -127,16 +127,16 @@ export default function MostSellingRadialChart({ salesTarget }) {
           </div>
 
           {/* Stats below chart */}
-          <div className="grid grid-cols-2 gap-4 text-center text-xs pt-2">
+          <div className="grid grid-cols-2 gap-4 text-center pt-4 border-t border-border/50 mt-2">
             <div>
-              <p className="text-gray-600">Target Qty</p>
-              <p className="font-semibold text-gray-900">
+              <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Target Qty</p>
+              <p className="text-sm font-black text-foreground">
                 {total_target_qty?.toLocaleString() || 0}
               </p>
             </div>
             <div>
-              <p className="text-gray-600">Achieved Qty</p>
-              <p className="font-semibold text-green-600">
+              <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Achieved Qty</p>
+              <p className="text-sm font-black text-emerald-600">
                 {total_achieved_qty?.toLocaleString() || 0}
               </p>
             </div>
