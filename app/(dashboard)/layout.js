@@ -12,6 +12,7 @@ import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import PosHeader from "@/components/pos-header/PosHeader";
 import FloatingShortcuts from "@/components/FloatingShortcuts";
+import DashboardQuickNav from "@/components/DashboardQuickNav";
 
 
 export default function DashboardLayout({ children }) {

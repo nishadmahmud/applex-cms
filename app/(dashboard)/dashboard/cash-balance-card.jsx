@@ -28,11 +28,11 @@ export default function CashBalanceCard() {
 
   if (isLoading) {
     return (
-      <Card className="shadow-sm rounded-md overflow-hidden animate-pulse">
-        <div className="bg-[#0073B7] h-10" />
+      <Card className="shadow-sm rounded-lg overflow-hidden animate-pulse border-gray-100">
+        <div className="h-12 border-b border-gray-100" />
         <div className="p-4 space-y-3">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="h-12 bg-gray-100 rounded" />
+            <div key={i} className="h-12 bg-gray-50 rounded" />
           ))}
         </div>
       </Card>
@@ -65,33 +65,35 @@ export default function CashBalanceCard() {
     }).format(amount || 0);
 
   return (
-    <Card className="shadow-sm rounded-md overflow-hidden flex flex-col h-full">
-      <CardHeader className="bg-[#0073B7] p-3 flex flex-row items-center gap-2 shrink-0">
-        <Landmark className="w-5 h-5 text-white" />
-        <CardTitle className="text-sm font-bold text-white tracking-wider uppercase m-0 p-0">
-          Cash, Bank &amp; Mobile Balance
+    <Card className="shadow-sm rounded-lg overflow-hidden flex flex-col h-full border-gray-100 bg-white">
+      <CardHeader className="p-4 py-3 flex flex-row items-center gap-3 shrink-0 border-b border-gray-100">
+        <div className="w-8 h-8 rounded-md bg-[#0073B7]/10 flex items-center justify-center text-[#0073B7]">
+          <Landmark className="w-4 h-4" />
+        </div>
+        <CardTitle className="text-[13px] font-bold text-gray-900 tracking-wider uppercase m-0 p-0">
+          Financial Balances
         </CardTitle>
       </CardHeader>
       <CardContent className="p-0 flex-1 overflow-y-auto max-h-[420px]">
-        <div className="divide-y divide-border/40">
+        <div className="divide-y divide-gray-50">
           {sorted.map((account) => {
             const meta = getAccountMeta(account.name);
             const bal = Number(account.paymentcategory_sum_payment_amount || 0);
             return (
               <div
                 key={account.id}
-                className="flex items-center gap-3 px-4 py-3 hover:bg-muted/30 transition-colors"
+                className="flex items-center gap-3 px-4 py-4 hover:bg-gray-50/50 transition-colors"
               >
                 <div
-                  className={`${meta.color} w-8 h-8 rounded-md flex items-center justify-center text-white shrink-0`}
+                  className={`${meta.color} w-9 h-9 rounded-full flex items-center justify-center text-white shrink-0 shadow-sm`}
                 >
-                  {meta.icon}
+                  {React.cloneElement(meta.icon, { className: "w-5 h-5" })}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-bold text-foreground truncate">
+                  <p className="text-[15px] font-extrabold text-gray-900 truncate">
                     BDT {formatCurrency(bal)}
                   </p>
-                  <p className="text-[11px] text-muted-foreground truncate">
+                  <p className="text-[11px] font-medium text-gray-400 uppercase tracking-tighter truncate">
                     {account.name}
                   </p>
                 </div>

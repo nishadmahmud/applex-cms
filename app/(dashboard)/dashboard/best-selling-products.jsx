@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useRouter } from "next/navigation";
+import { Box } from "lucide-react";
 import { Star } from "lucide-react";
 export default function BestSellingProducts({ products }) {
   const formatCurrency = (amount) => {
@@ -24,12 +25,13 @@ export default function BestSellingProducts({ products }) {
 
   return (
     <Card className="shadow-sm h-80 md:h-96 overflow-hidden bg-card border-border rounded-md flex flex-col">
-      <CardHeader className="bg-[#0073B7] p-3 flex flex-row items-center gap-2 shrink-0">
-        <Star className="w-5 h-5 text-white" />
-        <div className="flex flex-col gap-0.5 m-0 p-0">
-          <CardTitle className="text-sm font-bold text-white tracking-wider uppercase m-0 p-0">Best Selling Products List</CardTitle>
-          <CardDescription className="text-[10px] text-white/80 m-0 p-0">Top products by revenue</CardDescription>
+      <CardHeader className="p-4 py-3 flex flex-row items-center gap-3 shrink-0 border-b border-gray-100 bg-white">
+        <div className="w-8 h-8 rounded-md bg-[#0073B7]/10 flex items-center justify-center text-[#0073B7]">
+          <Box className="w-4 h-4" />
         </div>
+        <CardTitle className="text-[13px] font-bold text-gray-900 tracking-wider uppercase m-0 p-0">
+          Best Selling Products
+        </CardTitle>
       </CardHeader>
       <CardContent className="pt-2 flex-1 overflow-y-auto">
         <div className="space-y-1 divide-y divide-border/50">

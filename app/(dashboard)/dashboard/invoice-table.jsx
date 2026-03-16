@@ -165,7 +165,13 @@ import {
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FileText } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  ArrowUpRight,
+  ArrowDownLeft,
+  FileText,
+  Search,
+} from "lucide-react";
 
 export default function InvoiceTable({ title, invoices, type }) {
   // ✅ helpers
@@ -254,29 +260,28 @@ export default function InvoiceTable({ title, invoices, type }) {
 
   return (
     <Card className="shadow-sm rounded-md overflow-hidden">
-      <CardHeader className="bg-[#0073B7] p-3 shrink-0">
-        <div className="flex items-center justify-between w-full">
-          <div className="flex items-center gap-2">
-            <FileText className="w-5 h-5 text-white" />
-            <div className="flex flex-col gap-0.5">
-               <CardTitle className="text-sm font-bold text-white tracking-wider uppercase m-0 p-0">{title}</CardTitle>
-               <CardDescription className="text-[10px] text-white/80 m-0 p-0">
-                Latest {type === "selling" ? "sales" : "purchase"} transactions
-               </CardDescription>
-            </div>
+      <CardHeader className="p-4 py-3 flex flex-row items-center justify-between gap-3 shrink-0 border-b border-gray-100 bg-white">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-md bg-[#0073B7]/10 flex items-center justify-center text-[#0073B7]">
+            {type === "selling" ? (
+              <ArrowUpRight className="w-4 h-4" />
+            ) : (
+              <ArrowDownLeft className="w-4 h-4" />
+            )}
           </div>
-          <Link
-            href={
-              type === "selling"
-                ? `/invoice/all-sell-invoice`
-                : `/purchase/all-purchase-invoices`
-            }
-          >
-            <button className="text-[11px] text-white hover:text-white/80 font-bold uppercase tracking-wider px-2 py-1 bg-white/20 rounded-md transition-colors">
-              View All
-            </button>
-          </Link>
+          <CardTitle className="text-[13px] font-bold text-gray-900 tracking-wider uppercase m-0 p-0">
+            {title}
+          </CardTitle>
         </div>
+        <Link href={type === "selling" ? "/invoice/all-sell-invoice" : "/invoice/all-purchase-invoice"}>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="text-[11px] h-8 font-bold text-[#0073B7] hover:bg-[#0073B7]/5 uppercase tracking-tighter"
+          >
+            Show All
+          </Button>
+        </Link>
       </CardHeader>
 
       <CardContent className="pt-2">

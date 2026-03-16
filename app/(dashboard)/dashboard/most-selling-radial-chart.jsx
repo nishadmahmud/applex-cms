@@ -10,7 +10,7 @@ import {
   Label,
 } from "recharts";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { PieChart as PieChartIcon } from "lucide-react";
+import { Target } from "lucide-react";
 
 export default function MostSellingRadialChart({ salesTarget }) {
   if (!salesTarget) return null;
@@ -62,9 +62,13 @@ export default function MostSellingRadialChart({ salesTarget }) {
 
   return (
     <Card className="shadow-sm h-80 md:h-96 bg-card border-border transition-all hover:shadow-md overflow-hidden rounded-md">
-      <CardHeader className="bg-[#0073B7] p-3 flex flex-row items-center gap-2">
-        <PieChartIcon className="w-5 h-5 text-white" />
-        <CardTitle className="text-sm font-bold text-white tracking-wider uppercase m-0 p-0">Sales Target Summary</CardTitle>
+      <CardHeader className="p-4 py-3 flex flex-row items-center gap-3 shrink-0 border-b border-gray-100 bg-white">
+        <div className="w-8 h-8 rounded-md bg-[#0073B7]/10 flex items-center justify-center text-[#0073B7]">
+          <Target className="w-4 h-4" />
+        </div>
+        <CardTitle className="text-[13px] font-bold text-gray-900 tracking-wider uppercase m-0 p-0 truncate">
+          Most Selling
+        </CardTitle>
       </CardHeader>
       <CardContent className="p-4 bg-white/50 pt-4">
         <div className="h-[240px] md:h-[300px] flex flex-col">

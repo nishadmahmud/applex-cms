@@ -10,7 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { LineChart } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 
 export default function AreaChartCard({ title, color, dataKey, data }) {
   const formatNum = (v) =>
@@ -27,9 +27,13 @@ export default function AreaChartCard({ title, color, dataKey, data }) {
 
   return (
     <Card className="shadow-sm h-72 md:h-96 transition-all hover:shadow-md bg-card border-border overflow-hidden rounded-md">
-      <CardHeader className="bg-[#0073B7] p-3 flex flex-row items-center gap-2">
-        <LineChart className="w-5 h-5 text-white" />
-        <CardTitle className="text-sm font-bold text-white tracking-wider uppercase m-0 p-0">{title}</CardTitle>
+      <CardHeader className="p-4 py-3 flex flex-row items-center gap-3 shrink-0 border-b border-gray-100 bg-white">
+        <div className="w-8 h-8 rounded-md bg-[#0073B7]/10 flex items-center justify-center text-[#0073B7]">
+          <TrendingUp className="w-4 h-4" />
+        </div>
+        <CardTitle className="text-[13px] font-bold text-gray-900 tracking-wider uppercase m-0 p-0">
+          Monthly Expense Target
+        </CardTitle>
       </CardHeader>
       <CardContent className="pt-4">
         <ResponsiveContainer width="100%" height={240}>

@@ -7,60 +7,60 @@ export default function KPIMetrics({ data }) {
       title: "Total Sales",
       value: data?.sales || 0,
       currency: "BDT",
-      icon: <ShoppingCart className="w-10 h-10" />,
-      gradientClass: "bg-[#0073B7]",
+      icon: <ShoppingCart />,
+      accentColor: "#0073B7",
       link: "/invoice/all-sell-invoice",
     },
     {
       title: "Total Revenue",
       value: data?.revenue || 0,
       currency: "BDT",
-      icon: <Activity className="w-10 h-10" />,
-      gradientClass: "bg-[#005c97]",
+      icon: <Activity />,
+      accentColor: "#0ea5e9", // Sky-500
       link: "/analytics/monthly-sales-day-counting-report",
     },
     {
       title: "Total Expense",
       value: data?.expense || 0,
       currency: "BDT",
-      icon: <Wallet className="w-10 h-10" />,
-      gradientClass: "bg-slate-700",
+      icon: <Wallet />,
+      accentColor: "#64748b", // Slate-500
       link: "/expense/list",
     },
     {
       title: "Total Purchase",
       value: data?.purchase || 0,
       currency: "BDT",
-      icon: <Handshake className="w-10 h-10" />,
-      gradientClass: "bg-sky-700",
+      icon: <Handshake />,
+      accentColor: "#6366f1", // Indigo-500
       link: "/analytics/monthly-purchase-day-counting-report",
     },
     {
       title: "Total Balance",
       value: data?.balance || 0,
       currency: "BDT",
-      icon: <Banknote className="w-10 h-10" />,
-      gradientClass: "bg-teal-700",
+      icon: <Banknote />,
+      accentColor: "#10b981", // Emerald-500
       link: "/finance/fund-transfer",
     },
     {
       title: "Total Orders",
       value: data?.order || 0,
-      icon: <PackageOpen className="w-10 h-10" />,
-      gradientClass: "bg-indigo-700",
+      icon: <PackageOpen />,
+      accentColor: "#f59e0b", // Amber-500
     },
     {
       title: "New Customers",
       value: data?.new_customer || 0,
-      icon: <Users className="w-10 h-10" />,
-      gradientClass: "bg-blue-800",
+      icon: <Users />,
+      accentColor: "#8b5cf6", // Violet-500
       link: "/sale/customers",
     },
     {
       title: "Current Stock",
       value: data?.current_stock || 0,
-      icon: <Box className="w-10 h-10" />,
-      gradientClass: "bg-[#003f6b]",
+      icon: <Box />,
+      accentColor: "#0f172a", // Slate-900 (Professional Dark)
     },
   ];
 

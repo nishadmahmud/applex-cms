@@ -15,6 +15,10 @@ import BestSellingProducts from "./best-selling-products";
 import AreaChartCard from "./area-char-expense";
 import useSalesTargetSummary from "@/apiHooks/hooks/useSalesTargetSummary";
 import CashBalanceCard from "./cash-balance-card";
+import ProfitLossWidget from "./profit-loss-widget";
+import TopTablesWidget from "./top-tables-widget";
+import EmployeeSalesChart from "./employee-sales-chart";
+import BusinessInsights from "./business-insights";
 
 import ProtectedRoute from "@/components/ProtectedRoute";
 
@@ -112,6 +116,15 @@ export default function DashboardClient() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
 
+          {/* Business Insights — Arctic Style */}
+          <div className="mb-4 md:mb-8">
+            {isLoading ? (
+              <Skeleton className="h-32 w-full" />
+            ) : dashboardData ? (
+              <BusinessInsights data={dashboardData} />
+            ) : null}
+          </div>
+
           {/* KPI Metrics — loads independently */}
           <div className="mb-4 md:mb-8">
             {isLoading ? (
@@ -121,6 +134,17 @@ export default function DashboardClient() {
             ) : dashboardData ? (
               <KPIMetrics data={dashboardData} />
             ) : null}
+          </div>
+
+          {/* Top Performers (Top Customers, Receivables, Payables) */}
+          <div className="mb-4 md:mb-8">
+            <TopTablesWidget />
+          </div>
+
+          {/* Profit & Loss + Employee Sales */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-8">
+            <ProfitLossWidget interval={interval} />
+            <EmployeeSalesChart interval={interval} />
           </div>
 
           {/* Charts — load independently */}

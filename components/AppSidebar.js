@@ -107,9 +107,9 @@ export function AppSidebar({ ...props }) {
   return (
     <Sidebar collapsible="icon" {...props}>
       {/* === HEADER (never hidden) === */}
-      <SidebarHeader className="bg-sidebar border-b border-sidebar-border/50">
+      <SidebarHeader className="bg-sidebar border-b border-sidebar-border">
         <div className="flex flex-col items-center py-6 gap-2">
-          <div className="relative w-14 h-14 rounded-xl overflow-hidden shadow-2xl border border-primary/20 bg-white/5 flex items-center justify-center p-1">
+          <div className="relative w-14 h-14 rounded-xl overflow-hidden shadow-md border border-gray-100 bg-white flex items-center justify-center p-1">
             <Image
               src={
                 session?.user?.invoice_settings?.shop_logo ||
@@ -123,7 +123,7 @@ export function AppSidebar({ ...props }) {
             />
           </div>
           <div className="text-center group-data-[collapsible=icon]:hidden">
-            <div className="font-bold text-[13px] text-sidebar-foreground tracking-tight leading-tight uppercase">
+            <div className="font-bold text-[13px] text-gray-900 tracking-tight leading-tight uppercase">
               {session?.user?.outlet_name || "Outlet"}
             </div>
           </div>
@@ -139,7 +139,7 @@ export function AppSidebar({ ...props }) {
         ) : (
           visibleMenuSections.map((section) => (
             <SidebarGroup key={section.title}>
-              <SidebarGroupLabel className="text-xs font-bold text-sidebar-foreground/40 uppercase tracking-widest mb-3 mt-4 px-2">
+              <SidebarGroupLabel className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 mt-4 px-2">
                 {section.title}
               </SidebarGroupLabel>
 
@@ -155,7 +155,7 @@ export function AppSidebar({ ...props }) {
                           <CollapsibleTrigger asChild>
                             <SidebarMenuButton
                               tooltip={item.name}
-                              className="w-full data-[state=open]:bg-primary data-[state=open]:text-primary-foreground text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-foreground transition-all duration-200"
+                              className="w-full data-[state=open]:bg-black data-[state=open]:text-white text-gray-600 hover:bg-gray-100 hover:text-black transition-all duration-200"
                             >
                               <item.icon className="h-4 w-4" />
                               <span className="text-[15px] font-semibold">
@@ -172,11 +172,7 @@ export function AppSidebar({ ...props }) {
                                   <SidebarMenuSubButton
                                     asChild
                                     isActive={pathname === child.link}
-                                    className={`transition-all duration-200 ${
-                                      pathname === child.link
-                                        ? "text-primary font-bold bg-sidebar-accent/50"
-                                        : "text-sidebar-foreground/60 hover:text-sidebar-foreground hover:bg-sidebar-accent"
-                                    }`}
+                                    className="transition-all duration-200"
                                   >
                                     <Link
                                       href={child.link}
@@ -203,11 +199,7 @@ export function AppSidebar({ ...props }) {
                           asChild
                           isActive={pathname === item.link}
                           tooltip={item.name}
-                          className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-all ${
-                            pathname === item.link
-                              ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
-                              : "text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-foreground"
-                          }`}
+                           className="flex items-center gap-3 px-3 py-2 rounded-lg transition-all"
                         >
                           <Link
                             href={item.link}
