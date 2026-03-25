@@ -67,7 +67,7 @@ export default function MostSellingRadialChart({ salesTarget }) {
           <Target className="w-4 h-4" />
         </div>
         <CardTitle className="text-[13px] font-bold text-gray-900 tracking-wider uppercase m-0 p-0 truncate">
-          Most Selling
+          Monthly Target &amp; Progress
         </CardTitle>
       </CardHeader>
       <CardContent className="p-4 bg-white/50 pt-4">

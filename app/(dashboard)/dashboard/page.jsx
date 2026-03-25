@@ -19,6 +19,8 @@ import ProfitLossWidget from "./profit-loss-widget";
 import TopTablesWidget from "./top-tables-widget";
 import EmployeeSalesChart from "./employee-sales-chart";
 import BusinessInsights from "./business-insights";
+import ExpenseDonutChart from "./expense-donut-chart";
+import TopCategoriesChart from "./top-categories-chart";
 
 import ProtectedRoute from "@/components/ProtectedRoute";
 
@@ -143,7 +145,7 @@ export default function DashboardClient() {
 
           {/* Profit & Loss + Employee Sales */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-8">
-            <ProfitLossWidget interval={interval} />
+            <ProfitLossWidget data={dashboardData} interval={interval} />
             <EmployeeSalesChart interval={interval} />
           </div>
 
@@ -170,6 +172,12 @@ export default function DashboardClient() {
                 <MostSellingRadialChart salesTarget={targetSummary} />
               </>
             )}
+          </div>
+
+          {/* New Advanced Charts (Top Categories & Expense Breakdown) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-8">
+             <TopCategoriesChart interval={interval} />
+             <ExpenseDonutChart interval={interval} />
           </div>
 
           {/* Best Selling + Expense Trends — renders when data arrives */}

@@ -1,85 +1,16 @@
-import { useMemo } from "react";
-import { useGetProfitLossReportQuery } from "@/app/store/api/profitLossReportApi";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Loader2, TrendingUp, TrendingDown, DollarSign, WalletCards } from "lucide-react";
-
-// Fallback to inline date utils to avoid import issues
-const getDatesFromInterval = (interval) => {
-  const now = new Date();
-  let start = new Date(now);
-  let end = new Date(now);
-
-  end.setHours(23, 59, 59, 999);
-
-  switch (interval) {
-    case "daily":
-      start.setHours(0, 0, 0, 0);
-      break;
-    case "weekly":
-      const day = start.getDay();
-      const diff = start.getDate() - day + (day === 0 ? -6 : 1); // adjust when day is sunday
-      start.setDate(diff);
-      start.setHours(0, 0, 0, 0);
-      break;
-    case "monthly":
-      start.setDate(1);
-      start.setHours(0, 0, 0, 0);
-      break;
-    case "yearly":
-      start.setMonth(0, 1);
-      start.setHours(0, 0, 0, 0);
-      break;
-    default:
-      start.setHours(0, 0, 0, 0);
-  }
-
-  return {
-    start_date: start.toISOString(),
-    end_date: end.toISOString()
-  };
-};
+import { TrendingUp, TrendingDown, DollarSign, WalletCards } from "lucide-react";
 
 const fmt = (num) => Number(num || 0).toLocaleString("en-IN", { maximumFractionDigits: 2 });
 
-export default function ProfitLossWidget({ interval }) {
-  const dates = useMemo(() => getDatesFromInterval(interval), [interval]);
-
-  const { data, isLoading, isError } = useGetProfitLossReportQuery(dates);
-
-  const grossProfit = Number(data?.data?.gross_profit ?? 0);
-  const netProfit = Number(data?.data?.net_profit ?? 0);
-  const totalExpenses = Number(data?.data?.total_expenses ?? 0);
-  const totalIncome = grossProfit; // Often Gross Profit matches income in simple POS structures
-
-  if (isLoading) {
-    return (
-      <Card className="h-full border-blue-100 shadow-sm">
-        <CardHeader className="pb-2">
-          <CardTitle className="text-lg font-bold flex items-center gap-2 text-slate-700">
-            <WalletCards className="w-5 h-5 text-blue-500" /> Income, Expense & Profit
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="flex justify-center items-center h-48">
-          <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
-        </CardContent>
-      </Card>
-    );
-  }
-
-  if (isError) {
-    return (
-      <Card className="h-full border-red-100 shadow-sm">
-        <CardHeader className="pb-2">
-          <CardTitle className="text-lg font-bold flex items-center gap-2 text-slate-700">
-            <WalletCards className="w-5 h-5 text-blue-500" /> Income, Expense & Profit
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="h-48 text-center text-red-500 pt-10">
-          Failed to load Profit & Loss data.
-        </CardContent>
-      </Card>
-    );
-  }
+export default function ProfitLossWidget({ data, interval }) {
+  // Calculate directly from dashboardData to match Business Insights
+  const totalIncome = Number(data?.sales || 0);
+  const totalPurchase = Number(data?.purchase || 0);
+  const totalExpenses = Number(data?.expense || 0);
+  
+  const grossProfit = totalIncome - totalPurchase;
+  const netProfit = grossProfit - totalExpenses;
 
   return (
     <Card className="h-full border-slate-200 shadow-sm overflow-hidden relative">
@@ -88,7 +19,7 @@ export default function ProfitLossWidget({ interval }) {
         <CardTitle className="text-lg font-bold flex items-center gap-2 text-slate-700">
           <WalletCards className="w-5 h-5 text-blue-500" /> Income, Expense & Profit
           <span className="text-xs font-normal text-muted-foreground ml-auto bg-white px-2 py-1 rounded-md border shadow-sm">
-            {interval.charAt(0).toUpperCase() + interval.slice(1)}
+            {interval ? interval.charAt(0).toUpperCase() + interval.slice(1) : "Overall"}
           </span>
         </CardTitle>
       </CardHeader>
@@ -118,7 +49,7 @@ export default function ProfitLossWidget({ interval }) {
                 </div>
                 <span className="text-sm font-semibold text-emerald-800">Gross Profit</span>
               </div>
-              <p className="text-xl font-bold text-emerald-700 mt-2">৳ {fmt(totalIncome)}</p>
+              <p className="text-xl font-bold text-emerald-700 mt-2">৳ {fmt(grossProfit)}</p>
             </div>
 
             <div className="flex flex-col p-4 bg-rose-50 rounded-xl border border-rose-100">

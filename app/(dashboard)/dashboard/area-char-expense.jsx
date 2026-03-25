@@ -32,7 +32,7 @@ export default function AreaChartCard({ title, color, dataKey, data }) {
           <TrendingUp className="w-4 h-4" />
         </div>
         <CardTitle className="text-[13px] font-bold text-gray-900 tracking-wider uppercase m-0 p-0">
-          Monthly Expense Target
+          {title}
         </CardTitle>
       </CardHeader>
       <CardContent className="pt-4">

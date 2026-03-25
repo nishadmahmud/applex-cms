@@ -379,17 +379,17 @@ export default function AnalyticsPage() {
               return (
                 <Link href={`${report?.link}`} key={index}>
                   <Card
-                    className={`${report.bgColor} border-0 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer transform hover:-translate-y-1 h-full flex`}
+                    className="bg-white rounded-xl shadow-sm border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all duration-200 cursor-pointer h-full flex group"
                     onClick={() => handleCardClick(report.link)}
                   >
-                    <CardContent className="p-6 flex flex-col items-center justify-center text-center w-full">
+                    <CardContent className="p-5 flex items-center justify-start text-left w-full gap-4">
                       <div
-                        className={`p-3 rounded-full bg-white/50 ${report.iconColor} mb-4`}
+                        className={`p-3 rounded-xl ${report.bgColor || 'bg-gray-50'} ${report.iconColor || 'text-gray-600'} transition-transform group-hover:scale-105`}
                       >
-                        <IconComponent size={32} />
+                        <IconComponent size={24} />
                       </div>
                       <h3
-                        className={`font-bold text-base leading-tight ${report.textColor} min-h-[3rem] flex items-center justify-center`}
+                        className="font-semibold text-[15px] text-gray-800 leading-tight"
                       >
                         {report.title}
                       </h3>
